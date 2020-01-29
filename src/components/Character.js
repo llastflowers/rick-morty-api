@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CharListElement from './CharListElement';
-// import styles from './Character.css';
+import styles from './Character.css';
 
 class Character extends Component {
     static propTypes = {
@@ -18,38 +18,40 @@ class Character extends Component {
     render() {
       const { name, id, created, image, status, species, gender, origin, lastLocation } = this.props;
       return (
-        <>
-          <div>
-            <h2>{name}</h2>
-            <CharListElement
-              title="id:" description={id} />
-            <CharListElement
-              title="created" description={created} />
+        <section>
+          <div className={styles.characterItem}>
+            <div>
+              <img src={image}></img>
+            </div>
+            <div>
+              <h2>{name}</h2>
+              <CharListElement
+                title="id:" description={id} />
+              <CharListElement
+                title="created" description={created} />
+            </div>
+            <div>
+              <ul>
+                <li><CharListElement
+                  title="STATUS" description={status} />
+                </li>
+                <li><CharListElement
+                  title="SPECIES" description={species} />
+                </li>
+                <li><CharListElement
+                  title="GENDER" description={gender} />
+                </li>
+                <li>
+                  <CharListElement
+                    title="ORIGIN" description={origin} />
+                </li>
+                <li><CharListElement
+                  title="LAST LOCATION" description={lastLocation} />
+                </li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <img src={image}></img>
-          </div>
-          <div>
-            <ul>
-              <li><CharListElement
-                title="STATUS" description={status} />
-              </li>
-              <li><CharListElement
-                title="SPECIES" description={species} />
-              </li>
-              <li><CharListElement
-                title="GENDER" description={gender} />
-              </li>
-              <li>
-                <CharListElement
-                  title="ORIGIN" description={origin} />
-              </li>
-              <li><CharListElement
-                title="LAST LOCATION" description={lastLocation} />
-              </li>
-            </ul>
-          </div>
-        </>
+        </section>
       );
     }
 }

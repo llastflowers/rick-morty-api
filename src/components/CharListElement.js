@@ -6,8 +6,7 @@ class CharListElement extends Component {
 
     return (
       <>
-        <dt>{title}</dt>
-        <dd>{description}</dd>
+        <p>{title} <span>{description}</span></p>
       </>
     );
   }
